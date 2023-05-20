@@ -33,50 +33,11 @@ namespace Wpf_Vectors
             return new Vector3D(coords[0], coords[1], coords[2]);
         }
 
-
-        // Переопределение оператора +
-        // Суммирование
-        public static Vector3D operator +(Vector3D a, Vector3D b)
-        {
-            return new Vector3D(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
-        }
-
         // Разность
         public static Vector3D operator -(Vector3D a, Vector3D b)
         {
             return new Vector3D(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
 
-        // Вектороное произведение
-        public static Vector3D operator *(Vector3D a, Vector3D b)
-        {
-            return new Vector3D(a.Y*b.Z - a.Z*b.Y,
-                                a.Z*b.X - a.X*b.Z,
-                                a.X*b.Y - a.Y*b.X);
-        }
-
-        // Скалярное произведение
-        public static double operator &(Vector3D a, Vector3D b)
-        {
-            return a.X*b.X + a.Y*b.Y + a.Z*b.Z;
-        }
-
-        // Смешанное произведение
-        public double MixProd(Vector3D b, Vector3D c)
-        {
-            return this & b * c;
-        }
-
-        // Вычисление длины
-        public double Length()
-        {
-            return Math.Sqrt(X*X + Y*Y + Z*Z);
-        }
-
-        // Вычисление угла между векторами
-        public double Angle(Vector3D vector)
-        {
-            return (this & vector) / (this.Length() * vector.Length());
-        }
     }
 }
